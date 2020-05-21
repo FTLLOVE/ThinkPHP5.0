@@ -47,7 +47,7 @@ class QiniuUtil
 		list($res, $err) = $uploadMgr->putFile($token, $fileName, $file);
 
 		if ($err != null) {
-			throw new CustomException(ScopeEnum::IMAGE_ERROR);
+			throw new CustomException(ScopeEnum::UPLOAD_ERROR);
 		} else {
 			return $fileName;
 		}
