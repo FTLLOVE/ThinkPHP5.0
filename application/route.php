@@ -13,10 +13,18 @@
 use think\Route;
 
 // 自定义控制层
+
+// 获取banner详情
 Route::any("api/v1/getBanner", "api/BannerController/getBanner");
-Route::any("api/v1/testUpload", "api/BannerController/testUpload");
+// 新增banner
+Route::any("api/v1/addBanner", "api/BannerController/addBanner");
+// 更新banner
+Route::any("api/v1/updateBanner", "api/BannerController/updateBanner");
 
-
+// 获取theme列表
+Route::any("api/v1/getThemeList", "api/ThemeController/getThemeList");
+// 获取theme的产品列表
+Route::any("api/v1/getProductsOfTheme", "api/ThemeController/getProductsOfTheme");
 
 
 

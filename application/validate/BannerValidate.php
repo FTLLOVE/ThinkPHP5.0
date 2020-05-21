@@ -16,11 +16,11 @@ class BannerValidate extends BaseValidate
 
 	protected $rule = [
 		"name" => "require",
-		"description" => "require"
+		"description" => "require",
 	];
 
 	protected $message = [
 		"name.require" => "名称不能为空",
-		"description" => "描述不能为空"
+		"description" => "描述不能为空",
 	];
 }

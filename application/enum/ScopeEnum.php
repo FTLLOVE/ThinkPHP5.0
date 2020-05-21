@@ -17,4 +17,7 @@ class ScopeEnum
 	const IMAGE_ERROR = "图片不合法";
 	const UPLOAD_ERROR = "上传失败";
 	const DELETE_ERROR = "删除失败";
+	const BANNER_IS_EXIST = "banner已存在";
+	const ID_NOT_EMPTY = 'id不能为空';
+	const LIST_EMPTY = "列表为空";
 }

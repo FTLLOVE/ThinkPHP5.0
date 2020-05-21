@@ -15,6 +15,7 @@ use app\exception\CustomException;
 use Qiniu\Auth;
 use Qiniu\Storage\BucketManager;
 use Qiniu\Storage\UploadManager;
+use think\Request;
 
 class QiniuUtil
 {
@@ -27,6 +28,7 @@ class QiniuUtil
 	 */
 	public static function uploadImage()
 	{
+
 		if (empty($_FILES['file']['tmp_name'])) {
 			throw new CustomException(ScopeEnum::IMAGE_ERROR);
 		}

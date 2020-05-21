@@ -1,6 +1,6 @@
 <?php
 /**
- * @fileName BannerItem.php
+ * @fileName BannerItemModel.php
  * @author sprouts
  * @email 1139556759@qq.com
  * @date 2020/5/20 23:03
@@ -11,12 +11,12 @@
 namespace app\api\model;
 
 
-use think\Model;
-
-class BannerItem extends Model
+class BannerItemModel extends BaseModel
 {
 
-	protected $visible = ["key_word", "banner_id", "image"];
+	protected $table = "banner_item";
+
+	protected $visible = ["banner_id", "image"];
 
 	/**
 	 *
@@ -25,6 +25,6 @@ class BannerItem extends Model
 	 */
 	public function image()
 	{
-		return $this->belongsTo("Image", "img_id", "id");
+		return $this->belongsTo("ImageModel", "img_id", "id");
 	}
 }

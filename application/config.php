@@ -247,6 +247,8 @@ return [
 		'secretkey' => 'P_J1DOSPE2OeQbYB3LM1yFHRq3vxFXSbE9_B8KLU',
 		'bucket' => 'qihuishou',
 		'DOMAIN' => 'http://qn.qihuishou.club/'
-	]
+	],
+
+	"image_url" => "http://www.baidu.com"
 
 ];
