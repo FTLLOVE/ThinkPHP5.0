@@ -3,7 +3,7 @@
  * @fileName BaseModel.php
  * @author sprouts <1139556759@qq.com>
  * @date 2020/5/21 22:21
- * @description
+ * @description 基类模型
  */
 
 

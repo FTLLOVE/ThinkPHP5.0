@@ -20,11 +20,20 @@ Route::any("api/v1/getBanner", "api/BannerController/getBanner");
 Route::any("api/v1/addBanner", "api/BannerController/addBanner");
 // 更新banner
 Route::any("api/v1/updateBanner", "api/BannerController/updateBanner");
+// 获取banner列表
+Route::any("api/v1/getBannerList", "api/BannerController/getBannerList");
 
 // 获取theme列表
 Route::any("api/v1/getThemeList", "api/ThemeController/getThemeList");
 // 获取theme的产品列表
 Route::any("api/v1/getProductsOfTheme", "api/ThemeController/getProductsOfTheme");
 
+// 最新商品
+Route::any("api/v1/getNewProductList", "api/ProductController/getNewProductList");
+
+// 分类
+Route::any("api/v1/getCategoryList", "api/CategoryController/getCategoryList");
+// 获取分类下的产品列表
+Route::any("api/v1/getProductsByCategoryId", "api/CategoryController/getProductsByCategoryId");
 
 

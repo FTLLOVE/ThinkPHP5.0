@@ -10,6 +10,8 @@
 namespace app\api\model;
 
 
+use think\Request;
+
 class ProductModel extends BaseModel
 {
 
@@ -21,4 +23,33 @@ class ProductModel extends BaseModel
 	{
 		return $this->handleImageAttr($value, $data);
 	}
+
+	public static function getProductList(Request $request, $count)
+	{
+		$product = new ProductModel();
+		return $product
+			->where("name", "like", "%" . $request->param("name") . "%")
+			->limit(0, $count)
+			->order("create_time", "desc")
+			->select();
+
+	}
+
+	/**
+	 * 获取产品列表
+	 *
+	 * @param $categoryId
+	 * @return bool|false|\PDOStatement|string|\think\Collection
+	 * @throws \think\db\exception\DataNotFoundException
+	 * @throws \think\db\exception\ModelNotFoundException
+	 * @throws \think\exception\DbException
+	 */
+	public static function getProductsByCategoryId($categoryId)
+	{
+		$product = new ProductModel();
+		return $product
+			->where("category_id", "=", $categoryId)
+			->select();
+	}
+
 }

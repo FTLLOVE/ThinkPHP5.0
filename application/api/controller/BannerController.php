@@ -69,6 +69,7 @@ class BannerController
 			"update_time" => time(),
 		]);
 
+
 		$originBanner->save();
 
 		return ResponseData::Success();
@@ -103,7 +104,29 @@ class BannerController
 			);
 
 		return ResponseData::Success();
+	}
 
+	/**
+	 * 获取banner列表（支持name和description搜索）
+	 *
+	 * @param Request $request
+	 * @return array
+	 * @throws CustomException
+	 * @throws \think\db\exception\DataNotFoundException
+	 * @throws \think\db\exception\ModelNotFoundException
+	 * @throws \think\exception\DbException
+	 */
+	public function getBannerList(Request $request)
+	{
+		$keyword = $request->param("keyword");
+		$bannerModel = new BannerModel();
+		$result = $bannerModel->where("name", "like", "%$keyword%")
+			->whereOr("description", "like", "%$keyword%")
+			->select();
+		if ($result->isEmpty()) {
+			throw new CustomException(ScopeEnum::LIST_EMPTY);
+		}
+		return ResponseData::Success($result);
 	}
 
 }

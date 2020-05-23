@@ -6,9 +6,7 @@
  * @description theme控制层
  */
 
-
 namespace app\api\controller;
-
 
 use app\api\model\ThemeModel;
 use app\common\ResponseData;
@@ -40,7 +38,7 @@ class ThemeController
 
 		$result = ThemeModel::with(['topImage', 'headImage'])->select($ids);
 
-		if (empty($result)) {
+		if ($result->isEmpty()) {
 			throw new CustomException(ScopeEnum::LIST_EMPTY);
 		}
 
@@ -58,10 +56,10 @@ class ThemeController
 	public function getProductsOfTheme(Request $request)
 	{
 		(new IdValidate())->goCheck();
-		$res = ThemeModel::getThemeAndProducts($request->param("id"));
-		if (empty($res)) {
+		$result = ThemeModel::getThemeAndProducts($request->param("id"));
+		if (empty($result)) {
 			throw new CustomException(ScopeEnum::LIST_EMPTY);
 		}
-		return ResponseData::Success($res);
+		return ResponseData::Success($result);
 	}
 }
